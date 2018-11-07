@@ -25,10 +25,10 @@ void main3()
 	cin.get();
 }
 
-void main()
+void mainx()
 {
 	// TODO 编译器居然会出错，回家用vs2017试一下
-	thread  *pthread1(new thread[5]{ thread(run), thread(run), thread(run), thread(run), thread(run) });
+	//thread  *pthread1(new thread[5]{ thread(run), thread(run), thread(run), thread(run), thread(run) });
 	cout << "hello";
 	cin.get();
 }
