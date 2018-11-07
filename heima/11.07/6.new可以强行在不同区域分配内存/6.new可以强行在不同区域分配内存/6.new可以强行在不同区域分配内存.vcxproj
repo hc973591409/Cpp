@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{70E38616-7060-44B2-B8A9-DB1FD67C158D}</ProjectGuid>
-    <RootNamespace>delete的两种不同表现</RootNamespace>
+    <ProjectGuid>{97CD98F3-B4F0-4FD8-B048-F563072CAFC1}</ProjectGuid>
+    <RootNamespace>My6new可以强行在不同区域分配内存</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
