@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <array>
 
 using namespace std;
 
@@ -103,7 +104,7 @@ void main5()
 	cin.get();
 }
 
-void main()
+void main6()
 {
 	int data = 3.9;			// 隐式转换 舍弃小数
 	cout << data << endl;
@@ -113,6 +114,84 @@ void main()
 
 	auto num = 3 + 'A';		// char ---> int 类型  小类型-->大类型   带符号转换为无符号
 	cout << num << endl;
+
+	cin.get();
+}
+
+void main7()
+{
+	vector<int>myint{ 1, 2, 3, 4, 5, 6, 7, 8 };
+	for (auto &i : myint){ cout << i << "   "; };
+	cout << endl;
+
+	myint.resize(6);			//动态调整数组大小
+	for (auto &i : myint){ cout << i << "   "; };
+	cout << endl;
+
+	myint.resize(5, 90);		// 当前数组有5个，但是给分配90的缓冲区
+	for (auto &i : myint){ cout << i << "   "; };
+	cout << endl;
+
+	auto it = myint.begin() + 3;
+	myint.insert(it, 400);						// 指定位置插入
+	for (auto &i : myint){ cout << i << "   "; };
+	cout << endl;
+
+	array<int, 5>myarr = { 11, 22, 33, 44, 55 };		//批量插入数据
+	myint.insert(it, myarr.begin(), myarr.end());
+	for (auto &i : myint){ cout << i << "   "; };
+	cout << endl;
+
+	// 删除
+	for (auto ib = myint.begin(); ib != myint.end(); ib++){
+		if ((*ib == 3) || (*ib % 5 == 0))
+		{
+			auto it = ib - 1;
+			myint.erase(ib);	// 每次删除的时候，ib都是空，不能再次利用ib访问，所以用it来保存上一个值，不能删除第一个值
+			ib = it;
+		}
+	}
+
+	for (auto &i : myint){ cout << i << "   "; };
+	cout << endl;
+
+	cin.get();
+}
+
+void main8()
+{
+	// vector是在堆上的，会自动管理内存，且不会栈溢出
+	vector<int>myint;							//空的vector
+	int *p = myint.get_allocator().allocate(5);			// 分配内存
+	for (int i = 0; i < 5; i++)
+	{
+		p[i] = i;
+	}
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << p[i] << endl;
+	}
+	myint.get_allocator().deallocate(p, 5);               //释放内存
+
+
+	cin.get();
+}
+
+void main()
+{
+	vector<int>my1{ 1, 2, 3, 4, 5 };
+	vector<int>my2{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 22, 2 };
+	vector<int>my3{ 3, 5, 8, 9, 6, 4, 7 };
+	vector<vector<int>>my{ my1, my2, my3 };
+	for (auto &i : my){
+		for (auto j : i)
+		{
+			cout << j << " ";
+		}
+		cout << endl;
+	}
+
 
 	cin.get();
 }

@@ -58,7 +58,7 @@ void run()
 
 void go()
 {
-	unique_lock<mutex>lck(m);
+	unique_lock<mutex>lck(m);  // TODO
 	ready = true;
 	cv.notify_all();
 }
