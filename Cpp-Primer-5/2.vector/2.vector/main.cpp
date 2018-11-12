@@ -182,6 +182,9 @@ void main()
 {
 	vector<int>my1{ 1, 2, 3, 4, 5 };
 	vector<int>my2{ 2, 2, 2, 2, 2, 2, 2, 2, 2, 22, 2 };
+
+	my1.swap(my2);                       // ½»»»Á½¸övector
+
 	vector<int>my3{ 3, 5, 8, 9, 6, 4, 7 };
 	vector<vector<int>>my{ my1, my2, my3 };
 	for (auto &i : my){
